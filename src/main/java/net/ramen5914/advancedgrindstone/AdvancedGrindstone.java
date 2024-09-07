@@ -28,6 +28,8 @@ public class AdvancedGrindstone {
     public AdvancedGrindstone(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
         ModMenuTypes.register(modEventBus);
