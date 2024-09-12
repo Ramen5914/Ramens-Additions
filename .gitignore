@@ -14,7 +14,6 @@ out
 .idea
 
 # vscode
-
 .vscode
 
 # gradle
@@ -26,8 +25,10 @@ eclipse
 run
 runs
 run-data
-
 repo
 
-#data generation
+# data generation
 src/generated/resources/.cache
+
+# MacOS
+.DS_Store
