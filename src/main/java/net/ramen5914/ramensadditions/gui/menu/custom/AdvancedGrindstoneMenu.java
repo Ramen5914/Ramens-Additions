@@ -1,7 +1,5 @@
 package net.ramen5914.ramensadditions.gui.menu.custom;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.Container;
@@ -11,9 +9,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
+import net.ramen5914.ramensadditions.ModTags;
 import net.ramen5914.ramensadditions.block.ModBlocks;
 import net.ramen5914.ramensadditions.gui.menu.ModMenuTypes;
 
@@ -28,13 +26,15 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     private static final int USE_ROW_SLOT_END = 39;
 
     private final Container resultSlots = new ResultContainer();
-    final Container repairSlots = new SimpleContainer(2) {
+
+    final Container inputSlots = new SimpleContainer(2) {
         @Override
         public void setChanged() {
             super.setChanged();
             AdvancedGrindstoneMenu.this.slotsChanged(this);
         }
     };
+
     private final ContainerLevelAccess access;
 
     public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory) {
@@ -45,21 +45,31 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         super(ModMenuTypes.ADVANCED_GRINDSTONE.get(), containerId);
         this.access = access;
 
-        this.addSlot(new Slot(this.repairSlots, 0, 49, 19) {
+        this.addSlot(new Slot(this.inputSlots, INPUT_SLOT, 34, 30) {
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return EnchantmentHelper.hasAnyEnchantments(stack);
             }
-        });
 
-        this.addSlot(new Slot(this.repairSlots, 1, 49, 40) {
             @Override
-            public boolean mayPlace(ItemStack stack) {
-                return EnchantmentHelper.hasAnyEnchantments(stack);
+            public int getMaxStackSize() {
+                return 1;
             }
         });
 
-        this.addSlot(new Slot(this.resultSlots, 2, 129, 34) {
+        this.addSlot(new Slot(this.inputSlots, ADDITIONAL_SLOT, 95, 34) {
+            @Override
+            public boolean mayPlace(ItemStack stack) {
+                return stack.is(ModTags.Items.DISENCHANTING_CATALYSTS);
+            }
+
+            @Override
+            public int getMaxStackSize() {
+                return 1;
+            }
+        });
+
+        this.addSlot(new Slot(this.resultSlots, RESULT_SLOT, 144, 34) {
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return false;
@@ -68,12 +78,12 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 107 + i * 18));
             }
         }
 
         for (int k = 0; k < 9; k++) {
-            this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
+            this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 165));
         }
     }
 
@@ -81,73 +91,22 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     public void slotsChanged(Container container) {
         super.slotsChanged(container);
 
-        if (container == this.repairSlots) {
+        if (container == this.inputSlots) {
             this.createResult();
         }
     }
 
     private void createResult() {
-        this.resultSlots.setItem(0, this.computeResult(this.repairSlots.getItem(0), this.repairSlots.getItem(1)));
+        this.resultSlots.setItem(0, this.computeResult(this.inputSlots.getItem(0), this.inputSlots.getItem(1)));
         this.broadcastChanges();
     }
 
-    private ItemStack computeResult(ItemStack inputItem, ItemStack additionalItem) {
-        boolean flag = !inputItem.isEmpty() || !additionalItem.isEmpty();
-        if (!flag) {
-            return ItemStack.EMPTY;
-        } else if (inputItem.getCount() <= 1 && additionalItem.getCount() <= 1) {
-            boolean flag1 = !inputItem.isEmpty() && !additionalItem.isEmpty();
-            if (!flag1) {
-                ItemStack itemStack = !inputItem.isEmpty() ? inputItem : additionalItem;
-                return !EnchantmentHelper.hasAnyEnchantments(itemStack) ? ItemStack.EMPTY : this.removeNonCursesFrom(itemStack.copy());
-            } else {
-                return this.mergeItems(inputItem, additionalItem);
-            }
-        } else {
-            return ItemStack.EMPTY;
-        }
-    }
-
-    private ItemStack mergeItems(ItemStack inputItem, ItemStack additionalItem) {
-        if (!inputItem.is(additionalItem.getItem())) {
+    private ItemStack computeResult(ItemStack inputItem, ItemStack catalyst) {
+        if (inputItem.isEmpty() || catalyst.isEmpty() || inputItem.getCount() > 1) {
             return ItemStack.EMPTY;
         } else {
-            int i = Math.max(inputItem.getMaxDamage(), additionalItem.getMaxDamage());
-            int j = inputItem.getMaxDamage() - inputItem.getDamageValue();
-            int k = additionalItem.getMaxDamage() - additionalItem.getDamageValue();
-            int l = j + k + i * 5 / 100;
-            int i1 = 1;
-            if (!inputItem.isDamageableItem() || !inputItem.isRepairable()) {
-                if (inputItem.getMaxStackSize() < 2 || !ItemStack.matches(inputItem, additionalItem)) {
-                    return ItemStack.EMPTY;
-                }
-
-                i1 = 2;
-            }
-
-            ItemStack itemStack = inputItem.copyWithCount(i1);
-            if (itemStack.isDamageableItem()) {
-                itemStack.set(DataComponents.MAX_DAMAGE, i);
-                itemStack.setDamageValue(Math.max(i - l, 0));
-                if (!additionalItem.isRepairable()) itemStack.setDamageValue(inputItem.getDamageValue());
-            }
-
-            this.mergeEnchantsFrom(itemStack, additionalItem);
-            return this.removeNonCursesFrom(itemStack);
+            return this.removeNonCursesFrom(inputItem.copy());
         }
-    }
-
-    private void mergeEnchantsFrom(ItemStack inputItem, ItemStack additionalItem) {
-        EnchantmentHelper.updateEnchantments(inputItem, mutable -> {
-            ItemEnchantments itemEnchantments = EnchantmentHelper.getEnchantmentsForCrafting(additionalItem);
-
-            for (Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantments.entrySet()) {
-                Holder<Enchantment> holder = entry.getKey();
-                if (!holder.is(EnchantmentTags.CURSE) || mutable.getLevel(holder) == 0) {
-                    mutable.upgrade(holder, entry.getIntValue());
-                }
-            }
-        });
     }
 
     private ItemStack removeNonCursesFrom(ItemStack item) {
@@ -171,7 +130,7 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     @Override
     public void removed(Player player) {
         super.removed(player);
-        this.access.execute((level, blockPos) -> this.clearContainer(player, this.repairSlots));
+        this.access.execute((level, blockPos) -> this.clearContainer(player, this.inputSlots));
     }
 
     @Override
@@ -181,48 +140,81 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        ItemStack itemstack = ItemStack.EMPTY;
+
+        // New Empty itemStack
+        ItemStack clickedStackCopy = ItemStack.EMPTY;
+
+        // Index index of the slot you shift clicked
+        // Slot is the slot at that index
         Slot slot = this.slots.get(index);
+
+        // If the slot is valid and has an item then:
         if (slot != null && slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
-            itemstack = itemstack1.copy();
-            ItemStack itemstack2 = this.repairSlots.getItem(0);
-            ItemStack itemstack3 = this.repairSlots.getItem(1);
+            // ItemStack1 becomes the slots held item
+            ItemStack clickedStack = slot.getItem();
+
+            // ItemStack also becomes the slots held item, but as a copy
+            clickedStackCopy = clickedStack.copy();
+
+            // ItemStack2 is inputSlot 0
+            ItemStack inputStack = this.inputSlots.getItem(0);
+            // ItemStack3 is inputSlot 1
+            ItemStack catalystStack = this.inputSlots.getItem(1);
+
+            // If you shift click the output slot
             if (index == 2) {
-                if (!this.moveItemStackTo(itemstack1, 3, 39, true)) {
+                // Moves the output stack to the player inventory, starting at the rightmost hotbar slot
+                // If the move is unsuccessful, returns an empty stack.
+                if (!this.moveItemStackTo(clickedStack, 3, 39, true)) {
                     return ItemStack.EMPTY;
                 }
 
-                slot.onQuickCraft(itemstack1, itemstack);
+                // I think this might be unnecessary but whatever
+                slot.onQuickCraft(clickedStack, clickedStackCopy);
+            // If the shift clicked slot is not either of the input slots
             } else if (index != 0 && index != 1) {
-                if (!itemstack2.isEmpty() && !itemstack3.isEmpty()) {
+                // if both the inputStack and the catalyst stack are not empty
+                if (!inputStack.isEmpty() && !catalystStack.isEmpty()) {
+                    // if the slot clicked is one of the inventory slots (not hotbar)
                     if (index >= 3 && index < 30) {
-                        if (!this.moveItemStackTo(itemstack1, 30, 39, false)) {
+                        // Moves the clicked stack to the hotbar starting from the left
+                        // if the move is unsuccessful, returns an empty stack
+                        if (!this.moveItemStackTo(clickedStack, 30, 39, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (index >= 30 && index < 39 && !this.moveItemStackTo(itemstack1, 3, 30, false)) {
+                    // if the slot clicked is in the hotbar and moving the clicked stack to the inventory fails,
+                    } else if (index >= 30 && index < 39 && !this.moveItemStackTo(clickedStack, 3, 30, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
+                // if either the inputStack or the catalystStack is empty (or both),
+                // and if moving the clickedStack to the inputSlot or catalystSlot fails
+                // returns and empty stack
+                } else if (!this.moveItemStackTo(clickedStack, 0, 2, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(itemstack1, 3, 39, false)) {
+            // if the shift clicked slot is anything else, moves the clicked stack to any inventory slot
+            // if the move fails, returns an empty stack;
+            } else if (!this.moveItemStackTo(clickedStack, 3, 39, false)) {
                 return ItemStack.EMPTY;
             }
 
-            if (itemstack1.isEmpty()) {
+            // if the clicked stack is empty, this doesnt really do anything.
+            if (clickedStack.isEmpty()) {
                 slot.setByPlayer(ItemStack.EMPTY);
+            // if its not empty, run setChanged() function.
             } else {
                 slot.setChanged();
             }
 
-            if (itemstack1.getCount() == itemstack.getCount()) {
+            // if the clickedStack count equals the copy's count, return an empty stack
+            if (clickedStack.getCount() == clickedStackCopy.getCount()) {
                 return ItemStack.EMPTY;
             }
 
-            slot.onTake(player, itemstack1);
+            // runs the onTake method on the slot, which is just setChanged in this case.
+            slot.onTake(player, clickedStack);
         }
 
-        return itemstack;
+        return clickedStackCopy;
     }
 }
