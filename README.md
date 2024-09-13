@@ -12,9 +12,9 @@
 
 ## Stats
 ### Modrinth
-[![Modrinth Downloads](https://img.shields.io/modrinth/dt/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
-[![Modrinth Version](https://img.shields.io/modrinth/v/P7dR8mSH?style=for-the-badge&logo=modrinth&label=Latest%20Version&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
-[![Modrinth Followers](https://img.shields.io/modrinth/followers/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/yw4XPwau?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
+[![Modrinth Version](https://img.shields.io/modrinth/v/yw4XPwau?style=for-the-badge&logo=modrinth&label=Latest%20Version&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
+[![Modrinth Followers](https://img.shields.io/modrinth/followers/yw4XPwau?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 
 ### Curseforge
 [![CurseForge Downloads](https://img.shields.io/curseforge/dt/238222?style=for-the-badge&logo=curseforge&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
