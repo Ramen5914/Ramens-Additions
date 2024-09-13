@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 public class RamensAdditions {
     public static final String MOD_ID = "ramensadditions";
 
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public RamensAdditions(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
