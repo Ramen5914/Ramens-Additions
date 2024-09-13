@@ -11,7 +11,7 @@ import net.ramen5914.ramensadditions.block.ModBlocks;
 import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
-    public static DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, RamensAdditions.MOD_ID);
 
     public static final Supplier<CreativeModeTab> ADVANCED_GRINDSTONE_TAB =
