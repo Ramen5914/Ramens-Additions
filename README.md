@@ -1,6 +1,6 @@
 ![Ramen's Additions](https://raw.githubusercontent.com/Ramen5914/Ramens-Additions/main/Blender/Renders/markdown.png)
 
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FRamen5914%2FRamens-Additions%2Fmain%2Fupdate.json&query=%24.versions&style=for-the-badge&logo=semver&label=Versions%20Available&color=%23d48ad1)
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FRamen5914%2FRamens-Additions%2Fmain%2Fupdate.json&query=%24.versions&style=for-the-badge&logo=semver&label=Available%20For&color=%23d48ad1)
 
 # GitHub Info
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ramen5914/ramens-additions/build.yml?style=for-the-badge&logo=github)](https://github.com/Ramen5914/Ramens-Additions/actions/workflows/build.yml)
