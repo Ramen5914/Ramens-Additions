@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -18,6 +19,7 @@ import net.ramen5914.ramensadditions.gui.menu.custom.AdvancedGrindstoneMenu;
 import net.ramen5914.ramensadditions.gui.widget.Label;
 import net.ramen5914.ramensadditions.gui.widget.SelectionScrollInput;
 import net.ramen5914.ramensadditions.util.CustomFunctions;
+import oshi.util.tuples.Pair;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -65,7 +67,7 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
 
         enchantmentSelector = null;
 
-        List<MutableComponent> options;
+        List<Pair<Component, Boolean>> options;
         if (this.menu.getSlot(0).getItem() != ItemStack.EMPTY) {
             ItemEnchantments enchantments = EnchantmentHelper.getEnchantmentsForCrafting(menu.getSlot(0).getItem());
 
@@ -73,16 +75,18 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
                 String enchantName = holderEntry.getKey().value().description().getString();
                 Integer enchantLevel = holderEntry.getValue();
 
+                Boolean isCurse = holderEntry.getKey().is(EnchantmentTags.CURSE);
+
                 if (enchantLevel > 1) {
-                    return Component.literal(String.format("%s %s", enchantName, CustomFunctions.intToRomanNumeral(enchantLevel)));
+                    return new Pair<>((Component) Component.literal(String.format("%s %s", enchantName, CustomFunctions.intToRomanNumeral(enchantLevel))), isCurse);
                 } else {
-                    return Component.literal(enchantName);
+                    return new Pair<>((Component) Component.literal(enchantName), isCurse);
                 }
             }).collect(Collectors.toList());
 
-            options.addFirst(Component.literal("All"));
+            options.addFirst(new Pair<>(Component.literal("All"), false));
         } else {
-            options = List.of(Component.literal(""));
+            options = List.of(new Pair<>(Component.literal(""), false));
         }
 
         enchantmentLabel = new Label(getGuiLeft() + 16, getGuiTop() + 81, Component.empty()).withShadow();
@@ -93,7 +97,7 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
                 .writingTo(enchantmentLabel)
                 .calling(i -> {
                     startIndex = i;
-                    enchantmentLabel.text = options.get(i);
+                    enchantmentLabel.text = options.get(i).getA();
                 })
                 .withRange(0, options.size())
                 .setState(startIndex);
