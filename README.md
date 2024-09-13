@@ -11,7 +11,7 @@
 [![GitHub License](https://img.shields.io/github/license/ramen5914/ramens-additions?style=for-the-badge&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions/blob/main/LICENSE)
 
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=%23d48ad1)
-[![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=%23d48ad1&cacheSeconds=z)](https://github.com/Ramen5914/Ramens-Additions/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=%23d48ad1&label=Latest%20Version)](https://github.com/Ramen5914/Ramens-Additions/releases)
 
 # Curseforge Info
 [![CurseForge Downloads](https://img.shields.io/curseforge/dt/238222?style=for-the-badge&logo=curseforge&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
