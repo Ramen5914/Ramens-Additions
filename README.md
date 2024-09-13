@@ -4,10 +4,11 @@
 
 ## GitHub Info
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ramen5914/ramens-additions/build.yml?style=for-the-badge&logo=github)](https://github.com/Ramen5914/Ramens-Additions/actions/workflows/build.yml)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/ramen5914/ramens-additions?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions/issues)
 [![Discord Invite](https://img.shields.io/discord/1284033904344567828?style=for-the-badge&logo=discord&color=%235865F2)](https://discord.gg/Fp7AT6uaD8)
 
-![GitHub watchers](https://img.shields.io/github/watchers/ramen5914/ramens-additions?style=for-the-badge&logo=github&color=%23d48ad1)
-![GitHub Repo stars](https://img.shields.io/github/stars/ramen5914/ramens-additions?style=for-the-badge&logo=github&color=%23d48ad1)
+[![GitHub watchers](https://img.shields.io/github/watchers/ramen5914/ramens-additions?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions)
+[![GitHub Repo stars](https://img.shields.io/github/stars/ramen5914/ramens-additions?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions)
 [![GitHub License](https://img.shields.io/github/license/ramen5914/ramens-additions?style=for-the-badge&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions/blob/main/LICENSE)
 
 ## Stats
@@ -21,7 +22,7 @@
 [![CurseForge Version](https://img.shields.io/curseforge/v/238222?style=for-the-badge&logo=curseforge&label=Latest%20Version&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
 
 ### Github
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=%23d48ad1)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions/releases)
 [![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=%23d48ad1&label=Latest%20Version)](https://github.com/Ramen5914/Ramens-Additions/releases)
 
 ## Mod Details
