@@ -31,3 +31,6 @@ This is a super small mod (for now) that I created to add certain things I wishe
 ## Additions
 ### Advanced Grindstone
 This is an upgrade to the vanilla Grindstone that lets you remove specific enchants, curses, or everything from any enchanted item, at a cost.
+
+## Contributing
+I highly encourage anyone who ever sees this mod to send me ideas on what I can add next. Please submit your ideas as an [issue](https://github.com/Ramen5914/Ramens-Additions/issues) on GitHub and I will mark it as an enhancement. There is a [project board](https://github.com/users/Ramen5914/projects/6) for this repo as well which will show you what I am currently working on for the mod.
