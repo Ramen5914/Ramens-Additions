@@ -14,6 +14,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import oshi.util.tuples.Pair;
 
 import javax.annotation.Nonnull;
 import java.io.Console;
@@ -43,10 +44,10 @@ public class SelectionScrollInput extends AbstractWidget {
     protected Component hint = null;
     protected Label displayLabel;
     protected boolean soundPlayed;
-    protected Function<Integer, Component> formatter;
+    protected Function<Integer, Pair<Component, Boolean>> formatter;
     protected int min;
     protected int max;
-    protected List<? extends Component> options;
+    protected List<Pair<Component, Boolean>> options;
 
     protected SelectionScrollInput(int x, int y) {
         this(x, y, 16, 16);
@@ -55,7 +56,7 @@ public class SelectionScrollInput extends AbstractWidget {
     public SelectionScrollInput(int x, int y, int width, int height) {
         this(x, y, width, height, Component.empty());
         state = 0;
-        formatter = i -> Component.literal(String.valueOf(i));
+        formatter = i -> this.options.get(i);
         soundPlayed = false;
     }
 
@@ -109,7 +110,7 @@ public class SelectionScrollInput extends AbstractWidget {
         return this;
     }
 
-    public SelectionScrollInput format(Function<Integer, Component> formatter) {
+    public SelectionScrollInput format(Function<Integer, Pair<Component, Boolean>> formatter) {
         this.formatter = formatter;
         return this;
     }
@@ -198,12 +199,18 @@ public class SelectionScrollInput extends AbstractWidget {
     }
 
     protected void writeToLabel() {
-        displayLabel.text = formatter.apply(state);
+        Pair<Component, Boolean> componentBooleanPair = formatter.apply(state);
+
+        displayLabel.text = componentBooleanPair.getA();
+        if (componentBooleanPair.getB()) {
+            displayLabel.colored(0xff5555);
+        }
     }
 
-    public SelectionScrollInput forOptions(List<? extends Component> options) {
+    public SelectionScrollInput forOptions(List<Pair<Component, Boolean>> options) {
         this.options = options;
         this.max = options.size();
+
         format(options::get);
         updateTooltip();
         return this;
@@ -228,15 +235,29 @@ public class SelectionScrollInput extends AbstractWidget {
             max++;
         for (int i = min; i < max; i++) {
             if (i == state)
-                toolTip.add(Component.empty()
-                        .append("-> ")
-                        .append(options.get(i))
-                        .withStyle(ChatFormatting.WHITE));
+                if (options.get(i).getB()) {
+                    toolTip.add(Component.empty()
+                            .append("-> ")
+                            .append(options.get(i).getA())
+                            .withStyle(ChatFormatting.RED));
+                } else {
+                    toolTip.add(Component.empty()
+                            .append("-> ")
+                            .append(options.get(i).getA())
+                            .withStyle(ChatFormatting.WHITE));
+                }
             else
-                toolTip.add(Component.empty()
-                        .append("> ")
-                        .append(options.get(i))
-                        .withStyle(ChatFormatting.GRAY));
+                if (options.get(i).getB()) {
+                    toolTip.add(Component.empty()
+                            .append("-> ")
+                            .append(options.get(i).getA())
+                            .withStyle(ChatFormatting.DARK_RED));
+                } else {
+                    toolTip.add(Component.empty()
+                            .append("> ")
+                            .append(options.get(i).getA())
+                            .withStyle(ChatFormatting.GRAY));
+                }
         }
         if (max < this.max)
             toolTip.add(Component.literal("> ...")
