@@ -26,4 +26,8 @@
 [![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=%23d48ad1&label=Latest%20Version)](https://github.com/Ramen5914/Ramens-Additions/releases)
 
 ## Mod Details
-A special grindstone to remove specific enchants or curses!
+This is a super small mod (for now) that I created to add certain things I wished were in vanilla Minecraft. Please comment or create an issue on GitHub to suggest things to add to the mod!
+
+## Additions
+### Advanced Grindstone
+This is an upgrade to the vanilla Grindstone that lets you remove specific enchants, curses, or everything from any enchanted item, at a cost.
