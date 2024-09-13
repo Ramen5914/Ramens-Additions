@@ -25,7 +25,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.ramen5914.ramensadditions.gui.menu.custom.AdvancedGrindstoneMenu;
 
 public class AdvancedGrindstoneBlock extends FaceAttachedHorizontalDirectionalBlock {
-    public static final MapCodec<AdvancedGrindstoneBlock> CODEC = simpleCodec(AdvancedGrindstoneBlock::new);
     public static final VoxelShape FLOOR_NORTH_SOUTH_LEFT_POST = Block.box(2.0, 0.0, 6.0, 4.0, 7.0, 10.0);
     public static final VoxelShape FLOOR_NORTH_SOUTH_RIGHT_POST = Block.box(12.0, 0.0, 6.0, 14.0, 7.0, 10.0);
     public static final VoxelShape FLOOR_NORTH_SOUTH_LEFT_PIVOT = Block.box(2.0, 7.0, 5.0, 4.0, 13.0, 11.0);
@@ -94,7 +93,7 @@ public class AdvancedGrindstoneBlock extends FaceAttachedHorizontalDirectionalBl
 
     @Override
     public MapCodec<AdvancedGrindstoneBlock> codec() {
-        return CODEC;
+        return simpleCodec(AdvancedGrindstoneBlock::new);
     }
 
     public AdvancedGrindstoneBlock(BlockBehaviour.Properties properties) {
