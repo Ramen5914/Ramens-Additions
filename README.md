@@ -10,7 +10,8 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/ramen5914/ramens-additions?style=for-the-badge&logo=github)
 [![GitHub License](https://img.shields.io/github/license/ramen5914/ramens-additions?style=for-the-badge&color=blue)](https://github.com/Ramen5914/Ramens-Additions/blob/main/LICENSE)
 
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=blue)](https://github.com/Ramen5914/Ramens-Additions/releases)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=blue)
+](https://github.com/Ramen5914/Ramens-Additions/releases)
 [![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=blue&cacheSeconds=z)](https://github.com/Ramen5914/Ramens-Additions/releases)
 
 # Curseforge Info
