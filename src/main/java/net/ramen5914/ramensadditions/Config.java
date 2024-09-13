@@ -12,7 +12,5 @@ public class Config {
     static final ModConfigSpec SPEC = BUILDER.build();
 
     @SubscribeEvent
-    static void onLoad(final ModConfigEvent event) {
-
-    }
+    static void onLoad(final ModConfigEvent event) { }
 }
