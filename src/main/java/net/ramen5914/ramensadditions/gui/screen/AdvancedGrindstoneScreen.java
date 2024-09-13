@@ -19,7 +19,6 @@ import net.ramen5914.ramensadditions.gui.widget.Label;
 import net.ramen5914.ramensadditions.gui.widget.SelectionScrollInput;
 import net.ramen5914.ramensadditions.util.CustomFunctions;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
