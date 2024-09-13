@@ -26,11 +26,13 @@
 [![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=%23d48ad1&label=Latest%20Version)](https://github.com/Ramen5914/Ramens-Additions/releases)
 
 ## Mod Details
-This is a super small mod (for now) that I created to add certain things I wished were in vanilla Minecraft. Please comment or create an issue on GitHub to suggest things to add to the mod!
+This is a super small mod (for now) that I created to add certain things I wished were in vanilla Minecraft. I plan to continually add things to this mod that people request, or that I feel are missing from the game. This project is definitely a "kitchen sink" sort of mod (no real theme), but I hope to make up for certain things that minecraft lacks.
 
 ## Additions
+Here is a list of items my mod currently adds:
+
 ### Advanced Grindstone
-This is an upgrade to the vanilla Grindstone that lets you remove specific enchants, curses, or everything from any enchanted item, at a cost.
+The Advanced Grindstone is a special type of grindstone that you can craft with a netherite ingot and a regular Grindstone in a smithing table. It is an upgrade (but not a replacement) to the vanilla Grindstone that lets you not only remove all the enchantments from an item, but also curses. You can even just choose one enchantment/curse to remove by using the gui.
 
 ## Contributing
 I highly encourage anyone who ever sees this mod to send me ideas on what I can add next. Please submit your ideas as an [issue](https://github.com/Ramen5914/Ramens-Additions/issues) on GitHub and I will mark it as an enhancement. There is a [project board](https://github.com/users/Ramen5914/projects/6) for this repo as well which will show you what I am currently working on for the mod. Another great place to share ideas or talk with me would be on my [discord server](https://discord.gg/Fp7AT6uaD8) or in [GitHub Discussions](https://github.com/Ramen5914/Ramens-Additions/discussions).
