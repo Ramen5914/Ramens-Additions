@@ -10,18 +10,18 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/ramen5914/ramens-additions?style=for-the-badge&logo=github)
 [![GitHub License](https://img.shields.io/github/license/ramen5914/ramens-additions?style=for-the-badge&color=blue)](https://github.com/Ramen5914/Ramens-Additions/blob/main/LICENSE)
 
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=blue)
-![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=release&style=for-the-badge&logo=github&color=blue)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=blue)](https://github.com/Ramen5914/Ramens-Additions/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=release&style=for-the-badge&logo=github&color=blue)](https://github.com/Ramen5914/Ramens-Additions/releases)
 
 # Curseforge Info
-![CurseForge Downloads](https://img.shields.io/curseforge/dt/238222?style=for-the-badge&logo=curseforge&color=%23F16436)
-![CurseForge Version](https://img.shields.io/curseforge/v/238222?style=for-the-badge&logo=curseforge&label=Latest%20Version&color=%23F16436)
+[![CurseForge Downloads](https://img.shields.io/curseforge/dt/238222?style=for-the-badge&logo=curseforge&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
+[![CurseForge Version](https://img.shields.io/curseforge/v/238222?style=for-the-badge&logo=curseforge&label=Latest%20Version&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
 
 # Modrinth Info
-![Modrinth Followers](https://img.shields.io/modrinth/followers/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)
+[![Modrinth Followers](https://img.shields.io/modrinth/followers/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 
-![Modrinth Downloads](https://img.shields.io/modrinth/dt/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)
-![Modrinth Version](https://img.shields.io/modrinth/v/P7dR8mSH?style=for-the-badge&logo=modrinth&label=Latest%20Version&color=%2300AF5C)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
+[![Modrinth Version](https://img.shields.io/modrinth/v/P7dR8mSH?style=for-the-badge&logo=modrinth&label=Latest%20Version&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 
 [A special grindstone to remove specific enchants or curses!]()
 
