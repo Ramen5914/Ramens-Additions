@@ -101,9 +101,6 @@ public class AdvancedGrindstoneBlock extends FaceAttachedHorizontalDirectionalBl
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
     }
 
-    /**
-     * The type of render function called. MODEL for mixed tesr and static model, MODELBLOCK_ANIMATED for TESR-only, LIQUID for vanilla liquids, INVISIBLE to skip all rendering
-     */
     @Override
     protected RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
