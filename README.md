@@ -18,8 +18,8 @@
 [![Modrinth Followers](https://img.shields.io/modrinth/followers/yw4XPwau?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 
 ### Curseforge
-[![CurseForge Downloads](https://img.shields.io/curseforge/dt/238222?style=for-the-badge&logo=curseforge&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
-[![CurseForge Version](https://img.shields.io/curseforge/v/238222?style=for-the-badge&logo=curseforge&label=Latest%20Version&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
+[![CurseForge Downloads](https://img.shields.io/curseforge/dt/1101841?style=for-the-badge&logo=curseforge&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
+[![CurseForge Version](https://img.shields.io/curseforge/v/1101841?style=for-the-badge&logo=curseforge&label=Latest%20Version&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
 
 ### Github
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions/releases)
