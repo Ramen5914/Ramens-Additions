@@ -1,4 +1,4 @@
-[![Ramen's Additions](https://raw.githubusercontent.com/Ramen5914/Ramens-Additions/main/Blender/Renders/banner1280.png)]()
+![Ramen's Additions](https://raw.githubusercontent.com/Ramen5914/Ramens-Additions/main/Blender/Renders/banner1280.png)
 
 ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FRamen5914%2FRamens-Additions%2Fmain%2Fupdate.json&query=%24.versions&style=for-the-badge&logo=semver&label=Versions%20Available&color=blue)
 
