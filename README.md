@@ -18,12 +18,11 @@
 [![CurseForge Version](https://img.shields.io/curseforge/v/238222?style=for-the-badge&logo=curseforge&label=Latest%20Version&color=%23F16436)](https://www.curseforge.com/minecraft/mc-mods/ramens-additions)
 
 # Modrinth Info
-[![Modrinth Followers](https://img.shields.io/modrinth/followers/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
-
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 [![Modrinth Version](https://img.shields.io/modrinth/v/P7dR8mSH?style=for-the-badge&logo=modrinth&label=Latest%20Version&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
+[![Modrinth Followers](https://img.shields.io/modrinth/followers/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 
-[A special grindstone to remove specific enchants or curses!]()
+A special grindstone to remove specific enchants or curses!
 
 <p>Welcome to Create, a mod offering a variety of tools and blocks for Building, Decoration, and Aesthetic Automation.</p>
 <p>The added elements of tech are designed to leave as many design choices to the player as possible. With Create, the game isn't played inside a bunch of UIs, it challenges you to set up contraptions of animated components working together in many possible arrangements.</p>
