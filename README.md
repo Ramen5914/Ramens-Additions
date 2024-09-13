@@ -24,5 +24,5 @@
 [![Modrinth Version](https://img.shields.io/modrinth/v/P7dR8mSH?style=for-the-badge&logo=modrinth&label=Latest%20Version&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 [![Modrinth Followers](https://img.shields.io/modrinth/followers/P7dR8mSH?style=for-the-badge&logo=modrinth&color=%2300AF5C)](https://modrinth.com/mod/ramens-additions)
 
-# Mod Details
+## Mod Details
 A special grindstone to remove specific enchants or curses!
