@@ -60,7 +60,7 @@ public class RamensAdditions {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            
         }
     }
 }
