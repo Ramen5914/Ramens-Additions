@@ -1,19 +1,7 @@
 ![Ramen's Additions](https://raw.githubusercontent.com/Ramen5914/Ramens-Additions/main/Blender/Renders/banner1280.png)
-
----
-
-<p align="center">
-	<h1 align="center">Info</h1>
-	<a href="https://github.com/Ramen5914/Ramens-Additions/actions/workflows/build.yml">
-		<img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/ramen5914/ramens-additions/build.yml?style=for-the-badge&logo=github">
-	</a>
-	<a href="https://github.com/Ramen5914/Ramens-Additions/blob/main/LICENSE">
-		<img alt="GNU GPLv3 License" src="https://img.shields.io/badge/License-GNU_GPLv3-blue?style=for-the-badge">
-	</a>
-	<a href="https://discord.gg/Fp7AT6uaD8">
-		<img alt="Discord Invite" src="https://img.shields.io/discord/1284033904344567828?style=for-the-badge&logo=discord&color=%235865F2">
-	</a>
-
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ramen5914/ramens-additions/build.yml?style=for-the-badge&logo=github)](https://github.com/Ramen5914/Ramens-Additions/actions/workflows/build.yml)
+[![GNU GPLv3 License](https://img.shields.io/badge/License-GNU_GPLv3-blue?style=for-the-badge)](https://github.com/Ramen5914/Ramens-Additions/blob/main/LICENSE)
+[![Discord Invite](https://img.shields.io/discord/1284033904344567828?style=for-the-badge&logo=discord&color=%235865F2)](https://discord.gg/Fp7AT6uaD8)
 ---
 
 [A special grindstone to remove specific enchants or curses!]()
