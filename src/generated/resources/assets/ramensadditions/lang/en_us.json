@@ -1,5 +1,7 @@
 {
   "block.ramensadditions.advanced_grindstone": "Advanced Grindstone",
   "container.ramensadditions.advanced_grindstone_title": "Advanced Grindstone",
-  "itemgroup.ramensadditions.advanced_grindstone_tab": "Ramen's Additions"
+  "emi.category.ramensadditions.advanced_grinding": "Advanced Grinding",
+  "itemgroup.ramensadditions.advanced_grindstone_tab": "Ramen's Additions",
+  "tag.item.ramensadditions.disenchanting_catalysts": "Disenchanting Catalysts"
 }

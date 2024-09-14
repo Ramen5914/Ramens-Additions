@@ -5,7 +5,6 @@ import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Inventory;
@@ -27,7 +26,7 @@ import java.util.stream.Collectors;
 @OnlyIn(Dist.CLIENT)
 public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGrindstoneMenu> implements MenuAccess<AdvancedGrindstoneMenu> {
     private static final ResourceLocation ERROR_SPRITE = ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, "container/advanced_grindstone/error");
-    private static final ResourceLocation ADVANCED_GRINDSTONE_LOCATION = ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, "textures/gui/container/advanced_grindstone.png");
+    public static final ResourceLocation ADVANCED_GRINDSTONE_BACKGROUND = ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, "textures/gui/container/advanced_grindstone.png");
 
     private int startIndex = 0;
 
@@ -135,7 +134,7 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
 
-        guiGraphics.blit(ADVANCED_GRINDSTONE_LOCATION, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        guiGraphics.blit(ADVANCED_GRINDSTONE_BACKGROUND, i, j, 0, 0, this.imageWidth, this.imageHeight);
         if ((this.menu.getSlot(0).hasItem() || this.menu.getSlot(1).hasItem()) && !this.menu.getSlot(2).hasItem()) {
             guiGraphics.blitSprite(ERROR_SPRITE, i + 92, j + 31, 28, 21);
         }
