@@ -242,7 +242,7 @@ public class SelectionScrollInput extends AbstractWidget {
             else
                 if (options.get(i).getB()) {
                     toolTip.add(Component.empty()
-                            .append("-> ")
+                            .append("> ")
                             .append(options.get(i).getA())
                             .withStyle(ChatFormatting.DARK_RED));
                 } else {

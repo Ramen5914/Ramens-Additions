@@ -16,5 +16,7 @@ public class ModEnglishLangProvider extends LanguageProvider {
 
         add(String.format("container.%s.advanced_grindstone_title", RamensAdditions.MOD_ID), "Advanced Grindstone");
         add(String.format("itemgroup.%s.advanced_grindstone_tab", RamensAdditions.MOD_ID), "Ramen's Additions");
+        add(String.format("tag.item.%s.disenchanting_catalysts", RamensAdditions.MOD_ID), "Items that can be used in the Advanced Grindstone to remove single enchants.");
+        add(String.format("emi.category.%s.advanced_grindstone", RamensAdditions.MOD_ID), "Advanced Grinding");
     }
 }
