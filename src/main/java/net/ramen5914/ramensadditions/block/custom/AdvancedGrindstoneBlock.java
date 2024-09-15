@@ -25,6 +25,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.ramen5914.ramensadditions.gui.menu.custom.AdvancedGrindstoneMenu;
 
 public class AdvancedGrindstoneBlock extends FaceAttachedHorizontalDirectionalBlock {
+    // <editor-fold desc="Hitboxes">
     public static final VoxelShape FLOOR_NORTH_SOUTH_LEFT_POST = Block.box(2.0, 0.0, 6.0, 4.0, 7.0, 10.0);
     public static final VoxelShape FLOOR_NORTH_SOUTH_RIGHT_POST = Block.box(12.0, 0.0, 6.0, 14.0, 7.0, 10.0);
     public static final VoxelShape FLOOR_NORTH_SOUTH_LEFT_PIVOT = Block.box(2.0, 7.0, 5.0, 4.0, 13.0, 11.0);
@@ -90,6 +91,7 @@ public class AdvancedGrindstoneBlock extends FaceAttachedHorizontalDirectionalBl
     public static final VoxelShape CEILING_EAST_WEST_ALL_LEGS = Shapes.or(CEILING_EAST_WEST_LEFT_LEG, CEILING_EAST_WEST_RIGHT_LEG);
     public static final VoxelShape CEILING_EAST_WEST_GRINDSTONE = Shapes.or(CEILING_EAST_WEST_ALL_LEGS, Block.box(2.0, 0.0, 4.0, 14.0, 12.0, 12.0));
     private static final Component CONTAINER_TITLE = Component.translatable("container.ramensadditions.advanced_grindstone_title");
+    // </editor-fold>
 
     @Override
     public MapCodec<AdvancedGrindstoneBlock> codec() {
