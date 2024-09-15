@@ -37,3 +37,11 @@ The Advanced Grindstone is a special type of grindstone that you can craft with 
 
 ## Contributing
 I highly encourage anyone who ever sees this mod to send me ideas on what I can add next. Please submit your ideas as an [issue](https://github.com/Ramen5914/Ramens-Additions/issues) on GitHub and I will mark it as an enhancement. There is a [project board](https://github.com/users/Ramen5914/projects/6) for this repo as well which will show you what I am currently working on for the mod. Another great place to share ideas or talk with me would be on my [discord server](https://discord.gg/Fp7AT6uaD8) or in [GitHub Discussions](https://github.com/Ramen5914/Ramens-Additions/discussions).
+
+## Support Me :)
+You can support me at any of the places below!
+
+[![Static Badge](https://img.shields.io/badge/Ko--Fi-%23FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/ramen5914)
+[![Static Badge](https://img.shields.io/badge/Patreon-%23000000?style=for-the-badge&logo=patreon&logoColor=white)](patreon.com/Ramen5914)
+[![Static Badge](https://img.shields.io/badge/Github_Sponsors-%23EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/ramen5914)
+
