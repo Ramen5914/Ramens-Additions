@@ -109,13 +109,6 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         addRenderableWidget(enchantmentSelector);
 
         addRenderableWidget(enchantmentLabel);
-//        enchantmentSelector = new SelectionScrollInput(getGuiLeft() + 11, getGuiTop() + 76, 154, 18)
-//                .writingTo(enchantmentLabel)
-//                .addHint(Component.literal("Hint"))
-//                .titled(Component.literal("Title"))
-//                .setState(enchantToRemove)
-//                .calling(this::initGatherOptions);
-//        enchantmentLabel = new Label(getGuiLeft() + 15, getGuiTop() + 80, Component.empty()).withShadow();
     }
 
     @Override
