@@ -116,7 +116,14 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         if (inputItem.isEmpty() || catalyst.isEmpty() || inputItem.getCount() > 1) {
             return ItemStack.EMPTY;
         } else {
-            return this.removeNonCursesFrom(inputItem.copy());
+            if (this.state == 0) {
+                return this.removeAllEnchantsFrom(inputItem.copy());
+            } else {
+                return this.removeEnchantFrom(inputItem.copy());
+            }
+        }
+    }
+
     private ItemStack removeAllEnchantsFrom(ItemStack item) {
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
                 item, enchantments -> enchantments.removeIf(enchantmentHolder -> true)
