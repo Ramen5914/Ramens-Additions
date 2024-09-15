@@ -20,6 +20,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Items.DISENCHANTING_CATALYSTS)
-                .add(Items.NETHERITE_INGOT);
+                .add(Items.NETHERITE_INGOT)
+                .add(Items.NETHER_STAR);
     }
 }
