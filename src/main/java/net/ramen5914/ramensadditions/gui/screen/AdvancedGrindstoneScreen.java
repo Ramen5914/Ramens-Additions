@@ -106,7 +106,9 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         enchantmentSelector.visible = menu.getSlot(0).getItem() != ItemStack.EMPTY;
 
         enchantmentSelector.onChanged();
+        menu.setState(enchantmentSelector.getState());
         menu.setEnchantOptions(enchantOptions);
+
         addRenderableWidget(enchantmentSelector);
 
         addRenderableWidget(enchantmentLabel);
