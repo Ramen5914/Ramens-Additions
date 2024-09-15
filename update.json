@@ -4,8 +4,8 @@
     "1.0.0": "First release of my mod."
   },
   "promos": {
-    "1.21.1-latest": "0.2.1",
-    "1.21.1-recommended": "0.2.1"
+    "1.21.1-latest": "0.3.0",
+    "1.21.1-recommended": "0.3.0"
   },
   "versions": "1.21.1"
 }
