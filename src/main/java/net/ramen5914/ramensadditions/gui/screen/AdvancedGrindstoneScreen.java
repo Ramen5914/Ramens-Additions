@@ -132,8 +132,9 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         int j = (this.height - this.imageHeight) / 2;
 
         guiGraphics.blit(ADVANCED_GRINDSTONE_BACKGROUND, i, j, 0, 0, this.imageWidth, this.imageHeight);
+
         if ((this.menu.getSlot(0).hasItem() || this.menu.getSlot(1).hasItem()) && !this.menu.getSlot(2).hasItem()) {
-            guiGraphics.blitSprite(ERROR_SPRITE, i + 92, j + 31, 28, 21);
+            guiGraphics.blitSprite(ERROR_SPRITE, i + 120, j + 34, 15, 15);
         }
     }
 
