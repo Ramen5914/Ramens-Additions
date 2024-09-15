@@ -1,4 +1,4 @@
-package net.ramen5914.ramensadditions.emi;
+package net.ramen5914.ramensadditions.compat.emi;
 
 import com.google.common.collect.Lists;
 import dev.emi.emi.api.EmiEntrypoint;
@@ -10,7 +10,6 @@ import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -21,12 +20,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.ramen5914.ramensadditions.RamensAdditions;
 import net.ramen5914.ramensadditions.block.ModBlocks;
-import net.ramen5914.ramensadditions.emi.recipes.AdvancedGrindingRecipe;
+import net.ramen5914.ramensadditions.compat.emi.recipes.AdvancedGrindingRecipe;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
-import java.util.function.Consumer;
 
 @EmiEntrypoint
 public class ModEmiPlugin implements EmiPlugin {

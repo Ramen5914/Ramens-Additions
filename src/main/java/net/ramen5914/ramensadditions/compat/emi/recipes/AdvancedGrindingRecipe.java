@@ -1,9 +1,8 @@
-package net.ramen5914.ramensadditions.emi.recipes;
+package net.ramen5914.ramensadditions.compat.emi.recipes;
 
 import com.google.common.collect.Lists;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
-import dev.emi.emi.api.recipe.VanillaEmiRecipeCategories;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
@@ -13,25 +12,16 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.ramen5914.ramensadditions.ModTags;
-import net.ramen5914.ramensadditions.RamensAdditions;
-import net.ramen5914.ramensadditions.emi.ModEmiPlugin;
+import net.ramen5914.ramensadditions.compat.emi.ModEmiPlugin;
 import net.ramen5914.ramensadditions.gui.screen.AdvancedGrindstoneScreen;
-import net.ramen5914.ramensadditions.util.CustomFunctions;
 import org.jetbrains.annotations.Nullable;
-import oshi.util.tuples.Pair;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class AdvancedGrindingRecipe implements EmiRecipe {
     private final int uniq = new Random().nextInt();
