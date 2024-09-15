@@ -4,11 +4,13 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.neoforged.api.distmarker.Dist;
@@ -20,6 +22,7 @@ import net.ramen5914.ramensadditions.gui.widget.SelectionScrollInput;
 import net.ramen5914.ramensadditions.util.CustomFunctions;
 import oshi.util.tuples.Pair;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,10 +68,14 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         enchantmentSelector = null;
 
         List<Pair<Component, Boolean>> options;
+        List<Holder<Enchantment>> enchantOptions = new ArrayList<>();
+        enchantOptions.addFirst(null);
         if (this.menu.getSlot(0).getItem() != ItemStack.EMPTY) {
             ItemEnchantments enchantments = EnchantmentHelper.getEnchantmentsForCrafting(menu.getSlot(0).getItem());
 
             options = enchantments.entrySet().stream().map(holderEntry -> {
+                enchantOptions.add(holderEntry.getKey());
+
                 String enchantName = holderEntry.getKey().value().description().getString();
                 Integer enchantLevel = holderEntry.getValue();
 
@@ -99,23 +106,15 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
                 .withRange(0, options.size())
                 .setState(startIndex);
 
-        if (menu.getSlot(0).getItem() == ItemStack.EMPTY) {
-            enchantmentSelector.visible = false;
-        } else {
-            enchantmentSelector.visible = true;
-        }
+        enchantmentSelector.visible = menu.getSlot(0).getItem() != ItemStack.EMPTY;
 
         enchantmentSelector.onChanged();
+        menu.setState(enchantmentSelector.getState());
+        menu.setEnchantOptions(enchantOptions);
+
         addRenderableWidget(enchantmentSelector);
 
         addRenderableWidget(enchantmentLabel);
-//        enchantmentSelector = new SelectionScrollInput(getGuiLeft() + 11, getGuiTop() + 76, 154, 18)
-//                .writingTo(enchantmentLabel)
-//                .addHint(Component.literal("Hint"))
-//                .titled(Component.literal("Title"))
-//                .setState(enchantToRemove)
-//                .calling(this::initGatherOptions);
-//        enchantmentLabel = new Label(getGuiLeft() + 15, getGuiTop() + 80, Component.empty()).withShadow();
     }
 
     @Override
