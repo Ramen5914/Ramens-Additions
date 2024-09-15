@@ -77,6 +77,14 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
             public boolean mayPlace(ItemStack stack) {
                 return false;
             }
+
+            @Override
+            public void onTake(Player player, ItemStack stack) {
+                access.execute((level, blockPos) -> level.levelEvent(1042, blockPos, 0));
+
+                AdvancedGrindstoneMenu.this.inputSlots.setItem(0, ItemStack.EMPTY);
+                AdvancedGrindstoneMenu.this.inputSlots.setItem(1, ItemStack.EMPTY);
+            }
         });
 
         for (int i = 0; i < 3; i++) {
