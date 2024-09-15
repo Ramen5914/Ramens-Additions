@@ -9,9 +9,13 @@ import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -19,7 +23,10 @@ import net.ramen5914.ramensadditions.RamensAdditions;
 import net.ramen5914.ramensadditions.block.ModBlocks;
 import net.ramen5914.ramensadditions.emi.recipes.AdvancedGrindingRecipe;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
+import java.util.function.Consumer;
 
 @EmiEntrypoint
 public class ModEmiPlugin implements EmiPlugin {
@@ -58,20 +65,37 @@ public class ModEmiPlugin implements EmiPlugin {
                 )
         );
 
-        registry.addRecipe(new AdvancedGrindingRecipe());
+        for (Item i : BuiltInRegistries.ITEM) {
+            try {
+                ItemStack defaultStack = i.getDefaultInstance();
+                int acceptableEnchantments = 0;
+                for (Enchantment e : targetedEnchantments) {
+                    if (defaultStack.supportsEnchantment(Holder.direct(e))) {
+                        acceptableEnchantments++;
+                    }
+                }
+                if (acceptableEnchantments > 0) {
+                    for (Enchantment e : universalEnchantments) {
+                        if (defaultStack.supportsEnchantment(Holder.direct(e))) {
+                            acceptableEnchantments++;
+                        }
+                    }
+                    String itemNamespace = BuiltInRegistries.ITEM.getKey(i).getNamespace();
+                    String itemPath = BuiltInRegistries.ITEM.getKey(i).getPath();
+                    String id = String.format("/advanced_grindstone/disenchanting/%s/%s", itemNamespace, itemPath);
 
-//        for (Item i : BuiltInRegistries.ITEM) {
-//            try {
-//                if (i.components().getOrDefault(DataComponents.MAX_DAMAGE, 0) > 0) {
-//                    RamensAdditions.LOGGER.info(i.toString());
-//                    String format = String.format("/%s/%s/%s", "advanced_grindstone/disenchanting", BuiltInRegistries.ITEM.getKey(i).getNamespace(), BuiltInRegistries.ITEM.getKey(i).getPath());
-//                    RamensAdditions.LOGGER.info(format);
-//                    registry.addRecipe(new AdvancedGrindingRecipe(i, ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, format)));
-//                }
-//            } catch (Throwable t) {
-//                RamensAdditions.LOGGER.error("Exception thrown registering repair recipes");
-//                t.printStackTrace();
-//            }
-//        }
+                    registry.addRecipe(new AdvancedGrindingRecipe(i, ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, id)));
+                }
+            } catch (Throwable t) {
+                RamensAdditions.LOGGER.warn("Exception thrown registering enchantment recipes");
+                t.printStackTrace();
+                StringWriter writer = new StringWriter();
+                t.printStackTrace(new PrintWriter(writer, true));
+                String[] strings = writer.getBuffer().toString().split("/");
+                for (String s : strings) {
+                    RamensAdditions.LOGGER.warn(s);
+                }
+            }
+        }
     }
 }
