@@ -52,8 +52,6 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
     protected void init() {
         super.init();
 
-        RamensAdditions.LOGGER.info("INIT HERE");
-
         initGatherOptions();
 
         addRenderableWidget(enchantmentSelector);
