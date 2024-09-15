@@ -65,10 +65,14 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         enchantmentSelector = null;
 
         List<Pair<Component, Boolean>> options;
+        List<Holder<Enchantment>> enchantOptions = new ArrayList<>();
+        enchantOptions.addFirst(null);
         if (this.menu.getSlot(0).getItem() != ItemStack.EMPTY) {
             ItemEnchantments enchantments = EnchantmentHelper.getEnchantmentsForCrafting(menu.getSlot(0).getItem());
 
             options = enchantments.entrySet().stream().map(holderEntry -> {
+                enchantOptions.add(holderEntry.getKey());
+
                 String enchantName = holderEntry.getKey().value().description().getString();
                 Integer enchantLevel = holderEntry.getValue();
 
@@ -102,6 +106,7 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         enchantmentSelector.visible = menu.getSlot(0).getItem() != ItemStack.EMPTY;
 
         enchantmentSelector.onChanged();
+        menu.setEnchantOptions(enchantOptions);
         addRenderableWidget(enchantmentSelector);
 
         addRenderableWidget(enchantmentLabel);
