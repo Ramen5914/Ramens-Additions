@@ -112,10 +112,11 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         }
     }
 
-    private ItemStack removeNonCursesFrom(ItemStack item) {
+    private ItemStack removeEnchantFrom(ItemStack item) {
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
-                item, mutable -> mutable.removeIf(enchantmentHolder -> !enchantmentHolder.is(EnchantmentTags.CURSE))
+                item, enchantments -> enchantments.removeIf(enchantmentHolder -> enchantmentHolder.equals(enchantOptions.get(this.state)))
         );
+        
         if (item.is(Items.ENCHANTED_BOOK) && itemEnchantments.isEmpty()) {
             item = item.transmuteCopy(Items.BOOK);
         }
