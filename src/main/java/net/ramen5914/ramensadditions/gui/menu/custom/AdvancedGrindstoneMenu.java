@@ -220,4 +220,8 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
         return clickedStackCopy;
     }
+    public void setState(int state) {
+        this.state = state;
+        this.inputSlots.setChanged();
+    }
 }
