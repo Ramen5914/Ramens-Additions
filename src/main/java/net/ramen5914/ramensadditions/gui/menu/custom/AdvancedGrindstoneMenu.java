@@ -2,11 +2,9 @@ package net.ramen5914.ramensadditions.gui.menu.custom;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.EnchantmentTags;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -15,7 +13,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
-import net.minecraft.world.phys.Vec3;
 import net.ramen5914.ramensadditions.ModTags;
 import net.ramen5914.ramensadditions.block.ModBlocks;
 import net.ramen5914.ramensadditions.gui.menu.ModMenuTypes;
@@ -47,14 +44,17 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     };
 
     private final ContainerLevelAccess access;
+    private final FriendlyByteBuf extraData;
 
-    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory) {
-        this(containerId, playerInventory, ContainerLevelAccess.NULL);
+    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
+        this(containerId, playerInventory, extraData, ContainerLevelAccess.NULL);
     }
 
-    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, final ContainerLevelAccess access) {
+    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData, final ContainerLevelAccess access) {
         super(ModMenuTypes.ADVANCED_GRINDSTONE.get(), containerId);
         this.access = access;
+        this.extraData = extraData;
+
 
         this.addSlot(new Slot(this.inputSlots, INPUT_SLOT, 34, 30) {
             @Override
