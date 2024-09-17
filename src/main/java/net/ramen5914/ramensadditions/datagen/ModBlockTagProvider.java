@@ -21,5 +21,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.ADVANCED_GRINDSTONE.get());
 
+        this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(ModBlocks.ADVANCED_GRINDSTONE.get());
     }
 }
