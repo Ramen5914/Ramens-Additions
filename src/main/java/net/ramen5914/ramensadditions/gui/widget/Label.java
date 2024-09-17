@@ -103,7 +103,6 @@ public class Label extends AbstractWidget {
 
     public <T extends Label> T withCallback(BiConsumer<Integer, Integer> cb) {
         this.onClick = cb;
-        //noinspection unchecked
         return (T) this;
     }
 
@@ -113,7 +112,6 @@ public class Label extends AbstractWidget {
 
     public <T extends Label> T atZLevel(float z) {
         this.z = z;
-        //noinspection unchecked
         return (T) this;
     }
 
