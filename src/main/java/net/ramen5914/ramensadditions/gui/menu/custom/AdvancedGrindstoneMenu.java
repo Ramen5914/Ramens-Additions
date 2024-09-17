@@ -42,17 +42,14 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     };
 
     private final ContainerLevelAccess access;
-    private final FriendlyByteBuf extraData;
 
-    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this(containerId, playerInventory, extraData, ContainerLevelAccess.NULL);
+    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory) {
+        this(containerId, playerInventory, ContainerLevelAccess.NULL);
     }
 
-    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData, final ContainerLevelAccess access) {
+    public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, final ContainerLevelAccess access) {
         super(ModMenuTypes.ADVANCED_GRINDSTONE.get(), containerId);
         this.access = access;
-        this.extraData = extraData;
-
 
         this.addSlot(new Slot(this.inputSlots, INPUT_SLOT, 34, 30) {
             @Override
