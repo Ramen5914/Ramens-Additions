@@ -173,6 +173,15 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
+    public boolean clickMenuButton(Player player, int state) {
+        if (state != this.state) {
+            this.state = state;
+            this.createResult();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
         // New Empty itemStack
         ItemStack clickedStackCopy = ItemStack.EMPTY;
