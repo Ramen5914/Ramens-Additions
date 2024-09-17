@@ -31,8 +31,6 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     private static final int USE_ROW_SLOT_END = 39;
 
     private int state = 0;
-    private List<Holder<Enchantment>> enchantOptions = new ArrayList<>();
-
     private final Container resultSlots = new ResultContainer();
 
     final Container inputSlots = new SimpleContainer(2) {
