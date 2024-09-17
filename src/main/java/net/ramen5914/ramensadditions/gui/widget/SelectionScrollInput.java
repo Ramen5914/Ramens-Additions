@@ -153,9 +153,9 @@ public class SelectionScrollInput extends AbstractWidget {
     public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double scrollY) {
         int priorState = state;
 
-        if (scrollY > 0) {
+        if (scrollY < 0) {
             state += 1;
-        } else if (scrollY < 0) {
+        } else if (scrollY > 0) {
             state -= 1;
         }
 
