@@ -2,6 +2,7 @@
   "block.ramensadditions.advanced_grindstone": "Advanced Grindstone",
   "container.ramensadditions.advanced_grindstone_title": "Advanced Grindstone",
   "emi.category.ramensadditions.advanced_grinding": "Advanced Grinding",
+  "inforecipe.ramensadditions.advanced_grindstone": "An upgrade of the vanilla grindstone which has the power to remove curses! (at a cost)",
   "itemgroup.ramensadditions.advanced_grindstone_tab": "Ramen's Additions",
   "tag.item.ramensadditions.disenchanting_catalysts": "Disenchanting Catalysts"
 }
