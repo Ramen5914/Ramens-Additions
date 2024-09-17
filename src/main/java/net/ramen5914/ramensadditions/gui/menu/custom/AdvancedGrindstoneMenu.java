@@ -2,7 +2,6 @@ package net.ramen5914.ramensadditions.gui.menu.custom;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -16,9 +15,11 @@ import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.ramen5914.ramensadditions.ModTags;
 import net.ramen5914.ramensadditions.block.ModBlocks;
 import net.ramen5914.ramensadditions.gui.menu.ModMenuTypes;
+import net.ramen5914.ramensadditions.util.EnchantmentComparator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     public static final int MAX_NAME_LENGTH = 35;

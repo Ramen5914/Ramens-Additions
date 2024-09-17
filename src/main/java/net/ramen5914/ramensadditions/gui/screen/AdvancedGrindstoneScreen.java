@@ -1,16 +1,15 @@
 package net.ramen5914.ramensadditions.gui.screen;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
-import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.neoforged.api.distmarker.Dist;
@@ -20,9 +19,9 @@ import net.ramen5914.ramensadditions.gui.menu.custom.AdvancedGrindstoneMenu;
 import net.ramen5914.ramensadditions.gui.widget.Label;
 import net.ramen5914.ramensadditions.gui.widget.SelectionScrollInput;
 import net.ramen5914.ramensadditions.util.CustomFunctions;
+import net.ramen5914.ramensadditions.util.MappedEnchantmentComparator;
 import oshi.util.tuples.Pair;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
