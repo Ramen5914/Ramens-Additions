@@ -84,7 +84,6 @@ public class SelectionScrollInput extends AbstractWidget {
 
     public <T extends SelectionScrollInput> T atZLevel(float z) {
         this.z = z;
-        //noinspection unchecked
         return (T) this;
     }
 

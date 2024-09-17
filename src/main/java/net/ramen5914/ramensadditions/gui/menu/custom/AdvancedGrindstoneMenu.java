@@ -187,80 +187,50 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        // New Empty itemStack
         ItemStack clickedStackCopy = ItemStack.EMPTY;
-
-        // Index index of the slot you shift clicked
-        // Slot is the slot at that index
         Slot slot = this.slots.get(index);
 
-        // If the slot is valid and has an item then:
         if (slot != null && slot.hasItem()) {
-            // ItemStack1 becomes the slots held item
             ItemStack clickedStack = slot.getItem();
-
-            // ItemStack also becomes the slots held item, but as a copy
             clickedStackCopy = clickedStack.copy();
 
-            // ItemStack2 is inputSlot 0
             ItemStack inputStack = this.inputSlots.getItem(0);
-            // ItemStack3 is inputSlot 1
             ItemStack catalystStack = this.inputSlots.getItem(1);
 
-            // If you shift click the output slot
             if (index == 2) {
-                // Moves the output stack to the player inventory, starting at the rightmost hotbar slot
-                // If the move is unsuccessful, returns an empty stack.
                 if (!this.moveItemStackTo(clickedStack, 3, 39, true)) {
                     return ItemStack.EMPTY;
                 }
 
-                // I think this might be unnecessary but whatever
                 slot.onQuickCraft(clickedStack, clickedStackCopy);
-            // If the shift clicked slot is not either of the input slots
             } else if (index != 0 && index != 1) {
-                // if both the inputStack and the catalyst stack are not empty
                 if (!inputStack.isEmpty() && !catalystStack.isEmpty()) {
-                    // if the slot clicked is one of the inventory slots (not hotbar)
                     if (index >= 3 && index < 30) {
-                        // Moves the clicked stack to the hotbar starting from the left
-                        // if the move is unsuccessful, returns an empty stack
                         if (!this.moveItemStackTo(clickedStack, 30, 39, false)) {
                             return ItemStack.EMPTY;
                         }
-                    // if the slot clicked is in the hotbar and moving the clicked stack to the inventory fails,
                     } else if (index >= 30 && index < 39 && !this.moveItemStackTo(clickedStack, 3, 30, false)) {
                         return ItemStack.EMPTY;
                     }
-                // if either the inputStack or the catalystStack is empty (or both),
-                // and if moving the clickedStack to the inputSlot or catalystSlot fails
-                // returns and empty stack
                 } else if (!this.moveItemStackTo(clickedStack, 0, 2, false)) {
                     return ItemStack.EMPTY;
                 }
-            // if the shift clicked slot is anything else, moves the clicked stack to any inventory slot
-            // if the move fails, returns an empty stack;
             } else if (!this.moveItemStackTo(clickedStack, 3, 39, false)) {
                 return ItemStack.EMPTY;
             }
 
-            // if the clicked stack is empty, this doesnt really do anything.
             if (clickedStack.isEmpty()) {
                 slot.setByPlayer(ItemStack.EMPTY);
-            // if its not empty, run setChanged() function.
             } else {
                 slot.setChanged();
             }
 
-            // if the clickedStack count equals the copy's count, return an empty stack
             if (clickedStack.getCount() == clickedStackCopy.getCount()) {
                 return ItemStack.EMPTY;
             }
 
-            // runs the onTake method on the slot, which is just setChanged in this case.
             slot.onTake(player, clickedStack);
         }
-
         return clickedStackCopy;
     }
 }
