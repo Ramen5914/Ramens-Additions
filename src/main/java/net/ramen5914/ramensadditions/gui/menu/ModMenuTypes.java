@@ -16,10 +16,7 @@ public class ModMenuTypes {
             DeferredRegister.create(BuiltInRegistries.MENU, RamensAdditions.MOD_ID);
 
     public static final Supplier<MenuType<AdvancedGrindstoneMenu>> ADVANCED_GRINDSTONE =
-            MENU_TYPES.register("advanced_grindstone_mt", () -> IMenuTypeExtension.create(AdvancedGrindstoneMenu::new));
-
-//    public static final Supplier<MenuType<AdvancedGrindstoneMenu>> ADVANCED_GRINDSTONE =
-//            MENU_TYPES.register("advanced_grindstone_mt", () -> new MenuType<>(AdvancedGrindstoneMenu::new, FeatureFlags.DEFAULT_FLAGS));
+            MENU_TYPES.register("advanced_grindstone", () -> new MenuType<>(AdvancedGrindstoneMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void register(IEventBus eventBus) {
         MENU_TYPES.register(eventBus);
