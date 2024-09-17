@@ -49,6 +49,7 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
     public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, final ContainerLevelAccess access) {
         super(ModMenuTypes.ADVANCED_GRINDSTONE.get(), containerId);
+
         this.access = access;
 
         this.addSlot(new Slot(this.inputSlots, INPUT_SLOT, 34, 30) {
@@ -131,6 +132,7 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
                 item, enchantments -> enchantments.removeIf(enchantmentHolder -> true)
         );
+
         if (item.is(Items.ENCHANTED_BOOK) && itemEnchantments.isEmpty()) {
             item = item.transmuteCopy(Items.BOOK);
         }
@@ -143,7 +145,7 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         options.sort(new EnchantmentComparator());
 
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
-                item, enchantments -> enchantments.removeIf(enchantmentHolder -> enchantmentHolder.equals(enchantOptions.get(this.state)))
+                item, enchantments -> enchantments.removeIf(enchantmentHolder -> enchantmentHolder.equals(options.get(this.state - 1)))
         );
         
         if (item.is(Items.ENCHANTED_BOOK) && itemEnchantments.isEmpty()) {
