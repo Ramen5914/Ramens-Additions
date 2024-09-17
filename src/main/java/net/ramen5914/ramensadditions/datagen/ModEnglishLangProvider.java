@@ -18,5 +18,6 @@ public class ModEnglishLangProvider extends LanguageProvider {
         add(String.format("itemgroup.%s.advanced_grindstone_tab", RamensAdditions.MOD_ID), "Ramen's Additions");
         add(String.format("tag.item.%s.disenchanting_catalysts", RamensAdditions.MOD_ID), "Disenchanting Catalysts");
         add(String.format("emi.category.%s.advanced_grinding", RamensAdditions.MOD_ID), "Advanced Grinding");
+        add(String.format("inforecipe.%s.advanced_grindstone", RamensAdditions.MOD_ID), "An upgrade of the vanilla grindstone which has the power to remove curses! (at a cost)");
     }
 }

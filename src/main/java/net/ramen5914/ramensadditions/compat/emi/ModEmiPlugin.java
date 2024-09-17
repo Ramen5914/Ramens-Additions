@@ -56,8 +56,8 @@ public class ModEmiPlugin implements EmiPlugin {
         registry.addRecipe(
                 new EmiInfoRecipe(
                         List.of(EmiIngredient.of(Ingredient.of(ModBlocks.ADVANCED_GRINDSTONE.get()))),
-                        List.of(Component.literal(
-                                "An upgrade of the vanilla grindstone which has the power to remove curses! (at a cost)"
+                        List.of(Component.translatable(
+                                String.format("inforecipe.%s.advanced_grindstone", RamensAdditions.MOD_ID)
                         )),
                         ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, "/info_recipes/advanced_grindstone")
                 )
