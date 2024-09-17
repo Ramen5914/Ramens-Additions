@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @OnlyIn(Dist.CLIENT)
-public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGrindstoneMenu> implements MenuAccess<AdvancedGrindstoneMenu> {
+public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGrindstoneMenu> {
     private static final ResourceLocation ERROR_SPRITE = ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, "container/advanced_grindstone/error");
     public static final ResourceLocation ADVANCED_GRINDSTONE_BACKGROUND = ResourceLocation.fromNamespaceAndPath(RamensAdditions.MOD_ID, "textures/gui/container/advanced_grindstone.png");
 
