@@ -17,7 +17,9 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(RamensAdditions.MOD_ID);
 
     public static final DeferredBlock<Block> ADVANCED_GRINDSTONE = registerBlock("advanced_grindstone",
-            () -> new AdvancedGrindstoneBlock(BlockBehaviour.Properties.of().noOcclusion())
+            () -> new AdvancedGrindstoneBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops())
     );
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
