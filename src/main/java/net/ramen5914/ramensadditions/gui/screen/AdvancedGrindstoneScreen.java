@@ -103,13 +103,11 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
                 .setState(startIndex);
 
         enchantmentSelector.visible = menu.getSlot(0).getItem() != ItemStack.EMPTY;
-
         enchantmentSelector.onChanged();
-        menu.setState(enchantmentSelector.getState());
-        menu.setEnchantOptions(enchantOptions);
+
+        selectionChanged(enchantmentSelector.getState());
 
         addRenderableWidget(enchantmentSelector);
-
         addRenderableWidget(enchantmentLabel);
     }
 
@@ -149,5 +147,10 @@ public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGr
         if (listener != null) {
             super.removeWidget(listener);
         }
+    }
+
+    public void selectionChanged(int newState) {
+        if (this.menu.clickMenuButton(Minecraft.getInstance().player, newState))
+            Minecraft.getInstance().gameMode.handleInventoryButtonClick(this.menu.containerId, newState);
     }
 }
