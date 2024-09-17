@@ -1,10 +1,12 @@
 package net.ramen5914.ramensadditions.gui.screen;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.EnchantmentTags;
@@ -21,9 +23,6 @@ import net.ramen5914.ramensadditions.gui.widget.SelectionScrollInput;
 import net.ramen5914.ramensadditions.util.CustomFunctions;
 import net.ramen5914.ramensadditions.util.MappedEnchantmentComparator;
 import oshi.util.tuples.Pair;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @OnlyIn(Dist.CLIENT)
 public class AdvancedGrindstoneScreen extends AbstractContainerScreen<AdvancedGrindstoneMenu> {
