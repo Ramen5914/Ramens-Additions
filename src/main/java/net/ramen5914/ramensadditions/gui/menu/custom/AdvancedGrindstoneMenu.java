@@ -139,6 +139,9 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     }
 
     private ItemStack removeEnchantFrom(ItemStack item) {
+        List<Holder<Enchantment>> options = new ArrayList<>(EnchantmentHelper.getEnchantmentsForCrafting(item).entrySet().stream().map(Map.Entry::getKey).toList());
+        options.sort(new EnchantmentComparator());
+
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
                 item, enchantments -> enchantments.removeIf(enchantmentHolder -> enchantmentHolder.equals(enchantOptions.get(this.state)))
         );
