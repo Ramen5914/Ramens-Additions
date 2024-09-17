@@ -10,7 +10,7 @@ import net.ramen5914.ramensadditions.gui.screen.AdvancedGrindstoneScreen;
 @EventBusSubscriber(modid = RamensAdditions.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ModBusEvents {
     @SubscribeEvent
-    public static void registerScreens(RegisterMenuScreensEvent event) {
+    public static void registerMenuScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.ADVANCED_GRINDSTONE.get(), AdvancedGrindstoneScreen::new);
     }
 }

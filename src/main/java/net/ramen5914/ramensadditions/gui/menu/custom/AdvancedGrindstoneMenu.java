@@ -2,11 +2,8 @@ package net.ramen5914.ramensadditions.gui.menu.custom;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -15,13 +12,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
-import net.minecraft.world.phys.Vec3;
 import net.ramen5914.ramensadditions.ModTags;
 import net.ramen5914.ramensadditions.block.ModBlocks;
 import net.ramen5914.ramensadditions.gui.menu.ModMenuTypes;
+import net.ramen5914.ramensadditions.util.EnchantmentComparator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     public static final int MAX_NAME_LENGTH = 35;
@@ -34,8 +32,6 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     private static final int USE_ROW_SLOT_END = 39;
 
     private int state = 0;
-    private List<Holder<Enchantment>> enchantOptions = new ArrayList<>();
-
     private final Container resultSlots = new ResultContainer();
 
     final Container inputSlots = new SimpleContainer(2) {
@@ -54,6 +50,7 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
 
     public AdvancedGrindstoneMenu(int containerId, Inventory playerInventory, final ContainerLevelAccess access) {
         super(ModMenuTypes.ADVANCED_GRINDSTONE.get(), containerId);
+
         this.access = access;
 
         this.addSlot(new Slot(this.inputSlots, INPUT_SLOT, 34, 30) {
@@ -136,6 +133,7 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
                 item, enchantments -> enchantments.removeIf(enchantmentHolder -> true)
         );
+
         if (item.is(Items.ENCHANTED_BOOK) && itemEnchantments.isEmpty()) {
             item = item.transmuteCopy(Items.BOOK);
         }
@@ -144,8 +142,11 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     }
 
     private ItemStack removeEnchantFrom(ItemStack item) {
+        List<Holder<Enchantment>> options = new ArrayList<>(EnchantmentHelper.getEnchantmentsForCrafting(item).entrySet().stream().map(Map.Entry::getKey).toList());
+        options.sort(new EnchantmentComparator());
+
         ItemEnchantments itemEnchantments = EnchantmentHelper.updateEnchantments(
-                item, enchantments -> enchantments.removeIf(enchantmentHolder -> enchantmentHolder.equals(enchantOptions.get(this.state)))
+                item, enchantments -> enchantments.removeIf(enchantmentHolder -> enchantmentHolder.equals(options.get(this.state - 1)))
         );
         
         if (item.is(Items.ENCHANTED_BOOK) && itemEnchantments.isEmpty()) {
@@ -174,8 +175,18 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player player, int index) {
+    public boolean clickMenuButton(Player player, int state) {
+        if (state != this.state) {
+            this.state = state;
+            this.createResult();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    @Override
+    public ItemStack quickMoveStack(Player player, int index) {
         // New Empty itemStack
         ItemStack clickedStackCopy = ItemStack.EMPTY;
 
@@ -251,14 +262,5 @@ public class AdvancedGrindstoneMenu extends AbstractContainerMenu {
         }
 
         return clickedStackCopy;
-    }
-
-    public void setEnchantOptions(List<Holder<Enchantment>> enchantOptions) {
-        this.enchantOptions = enchantOptions;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-        this.inputSlots.setChanged();
     }
 }
