@@ -95,9 +95,6 @@ dependencies {
     compileOnly "dev.emi:emi-neoforge:${emi_version}:api"
     runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
 
-    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
-    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
-
     // JUnit 5
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.0'
