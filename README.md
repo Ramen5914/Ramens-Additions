@@ -26,6 +26,7 @@
 ### Github
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ramen5914/ramens-additions/total?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions/releases)
 [![GitHub Release](https://img.shields.io/github/v/release/ramen5914/ramens-additions?include_prereleases&sort=semver&display_name=tag&style=for-the-badge&logo=github&color=%23d48ad1&label=Latest%20Version)](https://github.com/Ramen5914/Ramens-Additions/releases)
+[![GitHub Repo stars](https://img.shields.io/github/stars/ramen5914/ramens-additions?style=for-the-badge&logo=github&color=%23d48ad1)](https://github.com/Ramen5914/Ramens-Additions)
 
 ## Mod Details
 This is a super small mod (for now) that I created to add certain things I wished were in vanilla Minecraft. I plan to continually add things to this mod that people request, or that I feel are missing from the game. This project is definitely a "kitchen sink" sort of mod (no real theme), but I hope to make up for certain things that minecraft lacks.
