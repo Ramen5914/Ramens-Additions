@@ -18,6 +18,16 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+/**
+ * <p>Code adapted from the open-source repository at <a href="https://github.com/Creators-of-Create/Create">https://github.com/Creators-of-Create/Create</a>.
+ * Original code by simibubi.
+ *
+ * <p>This code is used in compliance with the MIT License, which can be found here:
+ * <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>.
+ *
+ * @see <a href="https://github.com/Creators-of-Create/Create/blob/mc1.20.1/dev/src/main/java/com/simibubi/create/foundation/gui/widget/SelectionScrollInput.java">Original Source File</a>
+ * @since 0.0.4-alpha
+ */
 public class SelectionScrollInput extends AbstractWidget {
     public static final int HEADER_RGB = 0x5391E1;
     public static final int HINT_RGB = 0x96B7E0;
