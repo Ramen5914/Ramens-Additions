@@ -32,3 +32,4 @@ src/generated/resources/.cache
 
 # MacOS
 .DS_Store
+uploadScripting/.env
