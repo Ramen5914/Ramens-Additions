@@ -1,11 +1,12 @@
 {
   "homepage": "https://modrinth.com/mod/ramens-additions",
   "1.21.1": {
-    "1.0.0": "First release of my mod."
+    "1.0.0": "First release of my mod.",
+    "1.0.1": "NeoForge version is 21.1.66"
   },
   "promos": {
-    "1.21.1-latest": "1.0.0",
-    "1.21.1-recommended": "1.0.0"
+    "1.21.1-latest": "1.0.1",
+    "1.21.1-recommended": "1.0.1"
   },
   "versions": "1.21.1"
 }
